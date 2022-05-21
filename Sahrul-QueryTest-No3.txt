@@ -1,0 +1,11 @@
+SELECT
+	transactions.order_date, 
+	transactions.payment_status, 
+	transactions.payment_date, 
+	transaction_detail.price, 
+	transaction_detail.qty, 
+	transaction_detail.subtotal
+FROM
+	transactions
+INNER JOIN
+    transaction_detail ON transactions.id = transaction_detail.transaction_id

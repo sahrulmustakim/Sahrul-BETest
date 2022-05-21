@@ -1,0 +1,19 @@
+CREATE TABLE transactions (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    order_date DATETIME NOT NULL,
+    payment_status ENUM('pending', 'lunas'),
+    payment_date DATETIME DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+INSERT INTO transactions(order_date, payment_status, payment_date)
+    VALUES (
+        '2020-12-01 11:30:00',
+        'lunas',
+        '2020-12-01 12:00:00'
+    ),
+    (
+        '2020-12-02 10:30:00',
+        'pending',
+        NULL
+    )

@@ -1,0 +1,22 @@
+CREATE TABLE transaction_detail (
+    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    transaction_id INT(11) UNSIGNED NOT NULL,
+    price INT(11) NOT NULL,
+    qty INT(11) NOT NULL,
+    subtotal INT(11) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (transaction_id) REFERENCES transactions(id)
+)
+
+INSERT INTO transaction_detail(transaction_id, price, qty, subtotal)
+    VALUES (
+        1,
+        10000,
+        2,
+        20000
+    ),(
+        2,
+        6250,
+        4,
+        25000
+    )
